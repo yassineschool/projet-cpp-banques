@@ -1,6 +1,6 @@
 # Projet-CPP-banques
 
-## Description du projet
+## Description du projet 
 
 Ce projet en C++ permet de simuler des prêts bancaires selon plusieurs paramètres :
 
@@ -43,15 +43,44 @@ banques.csv
 
 ---
 
+## Fonction CSV utilisée
+
+```cpp
+void ajouterResultatCSV(string groupe,
+                        double capital,
+                        string banque,
+                        double taux,
+                        int duree,
+                        double resultat)
+```
+
+Cette fonction :
+
+- vérifie si le fichier CSV existe
+- crée automatiquement le fichier si nécessaire
+- ajoute les nouvelles données sans supprimer les anciennes
+- écrit l’en-tête une seule fois
+
+---
+
 ## Structure du fichier CSV
 
 ```text
 GROUPE;CAPITAL;BANQUE;TAUX;DUREE;RESULTAT
 ```
 
+Exemple :
+
+```text
+Lucas_Ines;250000.00;BP;3.00;10;2414.02
+Gregan_Nermine;50000.00;CA;4.00;20;605.98
+```
+
 ---
 
 ## Compilation
+
+Compiler le programme avec :
 
 ```bash
 g++ main.cpp -o programme
@@ -61,9 +90,13 @@ g++ main.cpp -o programme
 
 ## Exécution
 
+Lancer le programme :
+
 ```bash
 .\programme.exe
 ```
+
+Le fichier `banques.csv` est automatiquement créé ou mis à jour.
 
 ---
 
@@ -71,4 +104,24 @@ g++ main.cpp -o programme
 
 - C++
 - Git / GitHub
-- OpenOffice Calc
+- Excel / OpenOffice Calc
+
+---
+
+## Organisation du projet
+
+Chaque groupe réalise ses propres calculs de mensualités.
+
+Le rôle du système CSV est de :
+
+- standardiser les données
+- centraliser les résultats
+- permettre la comparaison des simulations
+
+Chaque groupe doit appeler :
+
+```cpp
+ajouterResultatCSV(...)
+```
+
+après chaque calcul de mensualité.
